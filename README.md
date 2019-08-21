@@ -2,7 +2,7 @@
 It is implemented from Faster RCNN.
 <b>R-CNN -> Fast R-CNN -> Faster R-CNN</b>
 
- <b><li>RCNN (Region Convolutional Neural Network):</li><b>
+ <b><li>RCNN (Region Convolutional Neural Network):</li></b>
 it has three seperate models, first for extracting image features, second for classify with SVM(Support Vector Machine), third for tighten boundbox with regressor.
 1. (a) Input images
    (b) extract Region proposals
@@ -10,10 +10,10 @@ it has three seperate models, first for extracting image features, second for cl
 2. Classify Regions(using SVM)
 3. Bounding box(Runs simple linear regression in regional proposal to generate a tighter bounding box coordinates)
 
- <b><li>Fast RCNN</li><b>
+ <b><li>Fast RCNN</li></b>
 This approach is similar to the R-CNN algorithm. But, instead of feeding the region proposals to the CNN, we feed the input image to the CNN to generate a convolutional feature map. From the convolutional feature map, we identify the region of proposals and warp them into squares and by using a RoI pooling layer we reshape them into a fixed size so that it can be fed into a fully connected layer. From the RoI feature vector, we use a softmax layer to predict the class of the proposed region and also the offset values for the bounding box.
 
-<b><li> Faster R-CNN</li><b>
+<b><li> Faster R-CNN</li></b>
 the image is provided as an input to a convolutional network which provides a convolutional feature map. Instead of using selective search algorithm on the feature map to identify the region proposals, a separate network is used to predict the region proposals. The predicted region proposals are then reshaped using a RoI pooling layer which is then used to classify the image within the proposed region and predict the offset values for the bounding boxes.
 
 1. In the first step, the input image goes through a convolution network which will output a set of convlutional feature maps on the last convolutional layer:
