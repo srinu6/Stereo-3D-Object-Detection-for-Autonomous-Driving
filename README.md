@@ -42,12 +42,14 @@ Stereo RCNN based 3D Object Detection :  Comparing with monocular camera, stereo
 Lets look how it works:
 <img src="Network Architecture of Stereo R-CNN.png">
 Main part we are going to discuss in this network are:
-<b><li>Stereo R-CNN Network </li>
+<b>
+<li>Stereo R-CNN Network</li>
 <li>Stereo RPN</li>
-<li>Stereo R-CNN 
+ <pre>
+<li>Stereo R-CNN</li>
          <li>Stereo Regression</li>
-         <li>Keypoint Prediction</li>
-</li>       
+         <li>Keypoint Prediction</li>       
 <li>3D Box Estimation</li>
+</pre>
 <li>Dense 3D Box Alignment</li>
 </b>
