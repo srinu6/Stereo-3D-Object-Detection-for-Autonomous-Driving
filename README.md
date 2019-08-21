@@ -86,11 +86,10 @@ Truncated edges are dropped on above seven equations. These multivariate equatio
 
 This project contains the implementation of our CVPR 2019 paper arxiv.
 
-Stereo R-CNN focuses on accurate 3D object detection and estimation using image-only data in autonomous driving scenarios. It features simultaneous object detection and association for stereo images, 3D box estimation using 2D information, accurate dense alignment for 3D box refinement. We also provide a light-weight version based on the monocular 2D detection, which only uses stereo images in the dense alignment module. Please checkout to branch mono for details.
+# Execution Instructions: 
+These instructions are taken from <a href="https://github.com/HKUST-Aerial-Robotics/Stereo-RCNN">here</a>
 
 Authors: Peiliang Li, Xiaozhi Chen and Shaojie Shen from the HKUST Aerial Robotics Group, and DJI.
-
-If you find the project useful for your research, please cite:
     
      @inproceedings{licvpr2019, 
     title     = {Stereo R-CNN based 3D Object Detection for Autonomous Driving}, 
