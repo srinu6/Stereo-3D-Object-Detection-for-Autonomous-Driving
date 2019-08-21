@@ -4,8 +4,11 @@ It is implemented from Faster RCNN.
 
  <b><li>RCNN (Region Convolutional Neural Network):</li></b>
 it has three seperate models, first for extracting image features, second for classify with SVM(Support Vector Machine), third for tighten boundbox with regressor.
-1. (a) Input images
+1. 
+   (a) Input images
+   
    (b) extract Region proposals
+   
    (c) compute CNN features
 2. Classify Regions(using SVM)
 3. Bounding box(Runs simple linear regression in regional proposal to generate a tighter bounding box coordinates)
@@ -23,6 +26,7 @@ the image is provided as an input to a convolutional network which provides a co
 Furthermore, for each of these anchors, a value p∗ is computed which indicated how much these anchors overlap with the ground-truth bounding boxes.
 <img src="https://qph.fs.quoracdn.net/main-qimg-254d27efab5509cdd90fff7221863066">
 p* is 1 if IoU > 0.7
+
 p* is 0 if IoU < 0.3
   
 where IoU is intersection over union and is defined below:
@@ -76,3 +80,8 @@ With stereo boxes and object dimension, the depth information can be recovered i
  we solve a coarse 3D bounding box by utilizing the sparse keypoint and 2D box information. States of the 3D bounding box can be represented by x = {x,y,z,θ}, which denotes the 3D center position and horizontal orientation respectively. Given the left-right 2D boxes, perspective keypoint, and regressed dimensions, the 3D box can be solved by minimize the reprojection error of 2D boxes and the keypoint.
  <img src="3D box Estimation.png">
   we extract seven measurements from stereo boxes and perspective keypoints: z = {ul,vt,ur,vb,u′ l,u′ r,up}, which represent left, top, right, bottom edges of the left 2D box, left, right edges of the right 2D box, and the u coordinate of the perspective keypoint.
+
+vt = (y − h 2)/(z − w 2 sinθ − l 2cosθ),  
+ul = (x − w 2 cosθ − l 2sinθ)/(z + w 2 sinθ − l 2cosθ),   
+up = (x + w 2 cosθ − l 2sinθ)/(z − w 2 sinθ − l 2cosθ),   
+u′r = (x − b + w 2 cosθ + l 2sinθ)/(z − w 2 sinθ + l 2cosθ).
