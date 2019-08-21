@@ -35,9 +35,9 @@ IoU= (Anchor ∩ GTBox)/ (Anchor ∪ GTBox)
 With Stereo RCNN there are two other popular methods for 3D object detection but why stereo then ?
 1. LiDAR-based 3D Object Detection : Currently, most of the 3D object detection methods heavily rely on LiDAR data for providing accurate depth information in autonomous driving scenarios. However, LiDAR has the disadvantage of high cost, relatively short perception range (∼100 m). Gaint companies like Tesla uses this method, this costs 50% of car's cost. But Stereo RCNN method costs only  5% of car's cost.
 
-2. Monocular-based 3D Object Detection :  monocular camera provides alternative low-cost solutions for 3D object detection. The depth information can be predicted by semantic properties in scenes and object size, etc. However, the inferred depth cannot guarantee the accuracy, especially for unseen scenes.
+2. Monocular-based 3D Object Detection :  monocular camera provides alternative low-cost solutions for 3D object detection. The depth information can be predicted by semantic properties in scenes and object size, etc. However, the inferred depth cannot guarantee the accuracy, especially for unseen scenes. It uses one camera.
 
-Stereo RCNN based 3D Object Detection :  Comparing with monocular camera, stereo camera provides more precise depth information by left-right photometric alignment. Comparing with LiDAR, stereo camera is low-cost while achieving comparable depth accuracy for objects with non-trivial disparities. The perception range of stereo camera depends on the focal length and the baseline.   
+Stereo RCNN based 3D Object Detection :  Comparing with monocular camera, stereo camera provides more precise depth information by left-right photometric alignment. Comparing with LiDAR, stereo camera is low-cost while achieving comparable depth accuracy for objects with non-trivial disparities. The perception range of stereo camera depends on the focal length and the baseline. It uses two or more cameras. Its kind of seeing with one eye(monocular) and seeing with two or more eyes(stereo).  
 
 Lets look how it works:
 <img src="Network Architecture of Stereo R-CNN.png">
@@ -53,3 +53,26 @@ Main part we are going to discuss in this network are:
 <li>3D Box Estimation</li>
 <li>Dense 3D Box Alignment</li>
 
+<b>Stereo R-CNN Network</b>
+Stereo R-CNN can simultaneously detect and associate 2D bounding boxes for left and right images with minor modiﬁcations. We use weight-share ResNet-101 and FPN as our backbone network to extract consistent features on left and right images. It outpups feature maps.
+ResNet-101 : Residual Network, which contains 101 layers.
+FPN        : Feature Pyramid Network
+
+<b>Stereo RPN</b>
+Region Proposal Network (RPN) is a slidingwindow based foreground detector. After feature extraction,a 3 X 3 convolution layer  is utilized to reduce channel, followed by two sibling fully-connected layer to classify objectness and regress box offsets for each input location which is anchored with pre-deﬁne multiple-scale boxes. we concatenate left and right feature maps at each scale, then we feed the concatenated features into the stereo RPN network.  
+
+<b>Stereo R-CNN :</b>
+1.Stereo Regression: After stereo RPN, we have corresponding left-right proposal pairs. We apply RoI Align on the left and right feature maps respectively at appropriate pyramid level. The left and right RoI features are concatenated and fed into two sequential fully-connected layers (each followed by a ReLU layer) to extract semantic information. We use four sub-branches to predict object class, stereo bounding boxes, dimension, and viewpoint angle respectively.
+<img src="ViewPoints.png">
+ we use θ to denote the vehicle orientation respecting to the camera frame, and β to denote the object azimuth respecting to the camera center. Three vehicles have different orientations, however, the projection of them are exactly the same on cropped RoI images. We therefore regress the viewpoint angle α deﬁned as: α = θ + β. To avoid the discontinuity, the training targets are [sinα,cosα] pair instead of the raw angle value.
+ 
+With stereo boxes and object dimension, the depth information can be recovered intuitively, and the vehicle orientation can also be solved by decoupling the relations between the viewpoint angle with the 3D position. 
+
+2. Keypoint Prediction :  Besides stereo boxes and viewpoint angle, we notice that the 3D box corner which projected in the box middle can provide more rigorous constraints to the 3D box estimation.
+<img src="KeyPoints.png">
+ we deﬁne four 3D semantic keypoints which indicate four corners at the bottom of the 3D bounding box. There is only one 3D semantic keypoint can be visibly projected to the box middle (instead of left or right edges). We deﬁne the projection of this semantic keypoint as perspective keypoint.
+ 
+ <b>3D Box Estimation</b>
+ we solve a coarse 3D bounding box by utilizing the sparse keypoint and 2D box information. States of the 3D bounding box can be represented by x = {x,y,z,θ}, which denotes the 3D center position and horizontal orientation respectively. Given the left-right 2D boxes, perspective keypoint, and regressed dimensions, the 3D box can be solved by minimize the reprojection error of 2D boxes and the keypoint.
+ <img src="3D box Estimation.png">
+  we extract seven measurements from stereo boxes and perspective keypoints: z = {ul,vt,ur,vb,u′ l,u′ r,up}, which represent left, top, right, bottom edges of the left 2D box, left, right edges of the right 2D box, and the u coordinate of the perspective keypoint.
