@@ -4,14 +4,11 @@ It is implemented from Faster RCNN.
 
  <b><li>RCNN (Region Convolutional Neural Network):</li></b>
 it has three seperate models, first for extracting image features, second for classify with SVM(Support Vector Machine), third for tighten boundbox with regressor.
-1. 
-   (a) Input images
-   
-   (b) extract Region proposals
-   
-   (c) compute CNN features
-2. Classify Regions(using SVM)
-3. Bounding box(Runs simple linear regression in regional proposal to generate a tighter bounding box coordinates)
+1.  (a) Input images   
+    (b) extract Region proposals   
+    (c) compute CNN features   
+2. Classify Regions(using SVM)    
+3. Bounding box(Runs simple linear regression in regional proposal to generate a tighter bounding box coordinates)    
 
  <b><li>Fast RCNN</li></b>
 This approach is similar to the R-CNN algorithm. But, instead of feeding the region proposals to the CNN, we feed the input image to the CNN to generate a convolutional feature map. From the convolutional feature map, we identify the region of proposals and warp them into squares and by using a RoI pooling layer we reshape them into a fixed size so that it can be fed into a fully connected layer. From the RoI feature vector, we use a softmax layer to predict the class of the proposed region and also the offset values for the bounding box.
