@@ -1,5 +1,6 @@
 # Stereo-RCNN-based 3D-Object-Detection-for-Autonomous-Driving
-It is implemented using Stereo R-CNN and Stereo R-CNN is extended implementation of Faster R-CNN 
+It is implemented using Stereo R-CNN and Stereo R-CNN is extended implementation of Faster R-CNN.   
+Evaluation of R-CNN: 
 <b>R-CNN -> Fast R-CNN -> Faster R-CNN</b>
 
  <b><li>RCNN (Region Convolutional Neural Network):</li></b>
