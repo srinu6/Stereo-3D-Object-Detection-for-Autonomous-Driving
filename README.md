@@ -45,8 +45,11 @@ Main part we are going to discuss in this network are:
 <li>Stereo R-CNN Network</li>
 <li>Stereo RPN</li> 
 <li>Stereo R-CNN</li>
+
                 1. Stereo Regression
-                2. Keypoint Prediction     
+                
+                2. Keypoint Prediction  
+                
 <li>3D Box Estimation</li>
 <li>Dense 3D Box Alignment</li>
 
