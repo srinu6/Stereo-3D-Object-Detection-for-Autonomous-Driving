@@ -22,13 +22,9 @@ the image is provided as an input to a convolutional network which provides a co
 
 
 Furthermore, for each of these anchors, a value p∗ is computed which indicated how much these anchors overlap with the ground-truth bounding boxes.
-<img href="https://qph.fs.quoracdn.net/main-qimg-254d27efab5509cdd90fff7221863066">
+<img src="https://qph.fs.quoracdn.net/main-qimg-254d27efab5509cdd90fff7221863066">
 
-    ⎧  1 if IoU>0.7 
-       0 if IoU<0.3
-p∗= ⎨ −1 if otherwise
-    ⎩
-    
+  
 where IoU is intersection over union and is defined below:
 
 IoU= (Anchor ∩ GTBox)/ (Anchor ∪ GTBox)
