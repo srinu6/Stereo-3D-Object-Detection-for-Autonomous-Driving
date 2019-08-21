@@ -40,7 +40,6 @@ With Stereo RCNN there are two other popular methods for 3D object detection but
 Stereo RCNN based 3D Object Detection :  Comparing with monocular camera, stereo camera provides more precise depth information by left-right photometric alignment. Comparing with LiDAR, stereo camera is low-cost while achieving comparable depth accuracy for objects with non-trivial disparities. The perception range of stereo camera depends on the focal length and the baseline.   
 
 Lets look how it works:
-
-
+<img src="Network Architecture of Stereo R-CNN.png">
 
 
