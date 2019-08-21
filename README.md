@@ -23,13 +23,15 @@ the image is provided as an input to a convolutional network which provides a co
 
 Furthermore, for each of these anchors, a value p∗ is computed which indicated how much these anchors overlap with the ground-truth bounding boxes.
 <img href="https://qph.fs.quoracdn.net/main-qimg-254d27efab5509cdd90fff7221863066">
-    ⎧ 
- 
-p∗= ⎨⎪⎪1−10ififIoU>0.7IoU<0.3otherwise
+
+    ⎧  1 if IoU>0.7 
+       0 if IoU<0.3
+p∗= ⎨ −1 if otherwise
     ⎩
+    
 where IoU is intersection over union and is defined below:
 
-IoU=Anchor∩GTBoxAnchor∪GTBox
+IoU= (Anchor ∩ GTBox)/ (Anchor ∪ GTBox)
 
 3. Finally, the 3×3 spatial features extracted from those convolution feature maps (shown above within red box) are fed to a smaller network which has two tasks: classification (cls) and regression (reg). The output of regressor determines a predicted bounding-box (x,y,w,h), The output of classification sub-network is a probability p indicating whether the predicted box contains an object (1) or it is from background (0 for no object).
 
