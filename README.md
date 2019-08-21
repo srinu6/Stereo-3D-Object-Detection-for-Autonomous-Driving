@@ -83,3 +83,50 @@ ul = (x − w 2 cosθ − l 2sinθ)/(z + w 2 sinθ − l 2cosθ),
 up = (x + w 2 cosθ − l 2sinθ)/(z − w 2 sinθ − l 2cosθ),   
 u′r = (x − b + w 2 cosθ + l 2sinθ)/(z − w 2 sinθ + l 2cosθ).
 Truncated edges are dropped on above seven equations. These multivariate equations are solved via Gauss-Newton method.
+
+This project contains the implementation of our CVPR 2019 paper arxiv.
+
+Stereo R-CNN focuses on accurate 3D object detection and estimation using image-only data in autonomous driving scenarios. It features simultaneous object detection and association for stereo images, 3D box estimation using 2D information, accurate dense alignment for 3D box refinement. We also provide a light-weight version based on the monocular 2D detection, which only uses stereo images in the dense alignment module. Please checkout to branch mono for details.
+
+Authors: Peiliang Li, Xiaozhi Chen and Shaojie Shen from the HKUST Aerial Robotics Group, and DJI.
+
+If you find the project useful for your research, please cite:
+    
+     @inproceedings{licvpr2019, 
+    title     = {Stereo R-CNN based 3D Object Detection for Autonomous Driving}, 
+    author    = {Li, Peiliang and Chen, Xiaozhi and Shen, Shaojie}, 
+    booktitle = {CVPR}, 
+    year      = {2019} 
+}
+
+# 0. Install
+This implementation is tested under Pytorch 1.0.0. To avoid affecting your Pytorch version, we recommend using conda to enable multiple versions of Pytorch.
+
+0.0 Install Pytorch
+
+    conda create -n env_stereo python=3.6
+    conda activate env_stereo
+    conda install pytorch=1.0.0 cuda90 -c pytorch
+    conda install torchvision -c pytorch
+    
+0.1 Other Dependencies
+
+    git clone git@github.com:HKUST-Aerial-Robotics/Stereo-RCNN.git
+    cd stereo_rcnn
+    git checkout 1.0
+    pip install -r requirements.txt
+    
+0.2 Build
+    
+    cd lib
+    python setup.py build develop
+    cd ..
+    
+# 1. Quick demo
+1.0. Set the folder for placing the model
+
+    mkdir models_stereo    
+1.1. Download our trained weight <a href="https://drive.google.com/file/d/1rIS43NzTvjRMX9m3UZIG5EvgFzXOVZWX/view">Google Drive</a> and put it into models_stereo/, then just run
+
+    python demo.py    
+If everything goes well, you will see the detection result on the left, right and bird's eye view image respectively.
