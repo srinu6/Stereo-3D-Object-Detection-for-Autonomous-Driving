@@ -130,3 +130,4 @@ This implementation is tested under Pytorch 1.0.0. To avoid affecting your Pytor
 
     python demo.py    
 If everything goes well, you will see the detection result on the left, right and bird's eye view image respectively.
+<img src="Result.png">
