@@ -85,7 +85,7 @@ up = (x + w 2 cosθ − l 2sinθ)/(z − w 2 sinθ − l 2cosθ),
 u′r = (x − b + w 2 cosθ + l 2sinθ)/(z − w 2 sinθ + l 2cosθ).
 Truncated edges are dropped on above seven equations. These multivariate equations are solved via Gauss-Newton method.
 
-This project contains the implementation of our CVPR 2019 paper arxiv.
+This project contains the implementation of CVPR 2019 paper <a href="https://arxiv.org/pdf/1902.09738.pdf">arxiv</a>.
 
 # Execution Instructions: 
 These instructions are taken from <a href="https://github.com/HKUST-Aerial-Robotics/Stereo-RCNN">here</a>
