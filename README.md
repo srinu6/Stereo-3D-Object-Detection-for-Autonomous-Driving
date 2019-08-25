@@ -88,7 +88,7 @@ Truncated edges are dropped on above seven equations. These multivariate equatio
 This project contains the implementation of CVPR 2019 paper <a href="https://arxiv.org/pdf/1902.09738.pdf">arxiv</a>.
 
 # Execution Instructions: 
-These instructions are taken from <a href="https://github.com/HKUST-Aerial-Robotics/Stereo-RCNN">here</a>
+Code and instructions are taken from <a href="https://github.com/HKUST-Aerial-Robotics/Stereo-RCNN">here</a>
 
 Authors: Peiliang Li, Xiaozhi Chen and Shaojie Shen from the HKUST Aerial Robotics Group, and DJI.
     
