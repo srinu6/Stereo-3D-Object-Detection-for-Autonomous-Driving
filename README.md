@@ -72,7 +72,8 @@ With stereo boxes and object dimension, the depth information can be recovered i
 
 2. Keypoint Prediction :  Besides stereo boxes and viewpoint angle, we notice that the 3D box corner which projected in the box middle can provide more rigorous constraints to the 3D box estimation.
 <img src="KeyPoints.png">
- we deﬁne four 3D semantic keypoints which indicate four corners at the bottom of the 3D bounding box. There is only one 3D semantic keypoint can be visibly projected to the box middle (instead of left or right edges). We deﬁne the projection of this semantic keypoint as perspective keypoint.    
+ we deﬁne four 3D semantic keypoints which indicate four corners at the bottom of the 3D bounding box. There is only one 3D semantic keypoint can be visibly projected to the box middle (instead of left or right edges). We deﬁne the projection of this semantic keypoint as perspective keypoint.     
+ 
  
  <b>3D Box Estimation</b>
  we solve a coarse 3D bounding box by utilizing the sparse keypoint and 2D box information. States of the 3D bounding box can be represented by x = {x,y,z,θ}, which denotes the 3D center position and horizontal orientation respectively. Given the left-right 2D boxes, perspective keypoint, and regressed dimensions, the 3D box can be solved by minimize the reprojection error of 2D boxes and the keypoint.  
