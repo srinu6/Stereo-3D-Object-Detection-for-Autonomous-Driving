@@ -129,7 +129,7 @@ This implementation is tested under Pytorch 1.0.0. To avoid affecting your Pytor
 1.0. Set the folder for placing the model
 
     mkdir models_stereo    
-1.1. Download our trained weight <a href="https://drive.google.com/file/d/1rIS43NzTvjRMX9m3UZIG5EvgFzXOVZWX/view">Google Drive</a> and put it into models_stereo/, then just run
+1.1. Download our trained weight <a href="https://drive.google.com/file/d/1rIS43NzTvjRMX9m3UZIG5EvgFzXOVZWX/view?usp=sharing">Google Drive</a> and put it into models_stereo/, then just run
 
     python demo.py    
 If everything goes well, you will see the detection result on the left, right and bird's eye view image respectively.
