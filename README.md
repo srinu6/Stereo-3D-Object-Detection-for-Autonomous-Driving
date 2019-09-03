@@ -1,7 +1,9 @@
 # Stereo-RCNN-based 3D-Object-Detection-for-Autonomous-Driving
+<a href="https://github.com/srinu6/3D-Machine-Learning">Checkout this repository for 3D Machine Learning </a>
+
 It is implemented using Stereo R-CNN and Stereo R-CNN is extended implementation of Faster R-CNN.   
 Evaluation of R-CNN: 
-<b>R-CNN -> Fast R-CNN -> Faster R-CNN</b>
+<b>R-CNN -> Fast R-CNN -><a href="https://github.com/jwyang/faster-rcnn.pytorch">Faster R-CNN</a></b>
 
  <b><li>RCNN (Region Convolutional Neural Network):</li></b>
 it has three seperate models, first for extracting image features, second for classify with SVM(Support Vector Machine), third for tighten boundbox with regressor.
