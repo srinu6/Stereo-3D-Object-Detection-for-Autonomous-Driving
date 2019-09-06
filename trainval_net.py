@@ -4,6 +4,7 @@
 # Written by Jiasen Lu, Jianwei Yang, based on code from Ross Girshick
 
 # Modified by Peiliang Li for Stereo RCNN train
+# Modified by Srinu sri for Stereo RCNN 1.0 
 # --------------------------------------------------------
 from __future__ import absolute_import
 from __future__ import division
